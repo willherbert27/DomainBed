@@ -133,7 +133,7 @@ class ColoredMNIST(MultipleEnvironmentMNIST):
     def color_dataset(self, images, labels, environment):
         # # Subsample 2x for computational convenience
         # images = images.reshape((-1, 28, 28))[:, ::2, ::2]
-        # Assign a binary label based on the digit
+        # Assign a binary label based on the digit (digits 0-4 = 0, digits 5-9 = 1)
         labels = (labels < 5).float()
         # Flip label with probability 0.25
         labels = self.torch_xor_(labels,
